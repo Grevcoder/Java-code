@@ -9,7 +9,7 @@ public class SetAvoidDuplication {
         // Creating a Set object and declaring it of String
         // type
         // with reference to TreeSet
-        Set<String> ts = new TreeSet<String>();
+        Set<String> ts = new HashSet<String>();
  
         // Adding elements into the TreeSet
         // using add()
@@ -19,7 +19,9 @@ public class SetAvoidDuplication {
          // Adding the duplicate
         // element
         ts.add("Sara");
-        
+        ts.add("Sara");
+        ts.add("Kate");
+
         for (String student:ts)
         {
         	System.out.println(student);

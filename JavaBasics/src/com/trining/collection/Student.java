@@ -1,5 +1,6 @@
 package com.trining.collection;
 import java.util.HashSet;
+import java.util.Objects;
 
 public class Student {
 	private String name;
@@ -43,27 +44,26 @@ public class Student {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	
+
+
 	@Override
 	public int hashCode() {
-	System.out.println("In hashcode");
-	return this.getRollNo();
+		return Objects.hash(grade, name, rollNo);
 	}
-	
-	
+
+
+	@Override
 	public boolean equals(Object obj) {
-		Student s = null;
-		if(obj instanceof Student){
-		s = (Student) obj;
-		}
-		System.out.println("In equals");
-		if(this.getName() == s.getName()){
-		return true;
-		} else {
-		return false;
-
-	
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return Objects.equals(grade, other.grade) && Objects.equals(name, other.name) && rollNo == other.rollNo;
 	}
-
-}
+	
+	
+	
 }
